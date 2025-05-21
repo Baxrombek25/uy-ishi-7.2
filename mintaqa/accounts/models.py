@@ -1,9 +1,9 @@
 from django.db import models
-from accounts.models import CustomUser
+from django.contrib.auth.models import AbstractUser
 
-class Region(models.Model):
+class CustomUser(AbstractUser):
     name = models.CharField(max_length=100)
-    owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null=True, blank=True, related_name='regions')
+    # owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, related_name='regions')
 
-    def str(self):
+    def __str__(self):
         return self.name

@@ -7,6 +7,7 @@ from rest_framework.permissions import IsAuthenticated
 
 class RegisterView(generics.CreateAPIView):
     serializer_class = RegisterSerializer
+    queryset =CustomUser.objects.all()
     permission_classes = [permissions.AllowAny]
 
 class ProfileView(generics.RetrieveUpdateAPIView):
